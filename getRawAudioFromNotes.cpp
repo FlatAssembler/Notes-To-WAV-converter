@@ -40,7 +40,44 @@ int main(int argc,char **argv) {
 		std::cerr<<"Can't open \"" <<argv[1] <<"\" for reading!" <<std::endl;
 		return 1;
 	}
-	FILE *raw=std::fopen("output.raw","wb");
+	FILE *wav=std::fopen("output.wav","wb");
+	if (!wav) {
+		std::cerr <<"Can't open \"output.wav\" for output!" <<std::endl;
+		return 1;
+	}
+	bool isLittleEndian;
+	int testNumber=0x10;
+	std::fwrite(&testNumber,sizeof(int),1,wav);
+	std::fclose(wav);
+	wav=std::fopen("output.wav","rb");
+	char testCharacter=0;
+	std::fread(&testCharacter,1,1,wav);
+	std::fclose(wav);
+	if (testCharacter==0x10) //The logic is: if the C library uses big endian for writing binary files, now "testCharacter" will still contain 0.
+		isLittleEndian=true;
+	wav=std::fopen("output.wav","wb");
+	if (isLittleEndian)
+		std::fprintf(wav,"RIFF"); //ASCII for 0x52494646, the magic number that WAV files start with. 
+	else
+		std::fprintf(wav,"RIFX"); //Big endian WAV file starts with magic number 0x52494658, or, in ASCII, "RIFX". 
+	int32_t ChunkSize=36+8*sampleRate*2;
+	std::fwrite(&ChunkSize,4,1,wav);
+	std::fprintf(wav,"WAVEfmt "); //The beginning of the header.
+	int32_t Subchunk1Size=16; //PCM header is always 16 bytes.
+	std::fwrite(&Subchunk1Size,4,1,wav);
+	int16_t AudioFormat=1; //PCM format.
+	std::fwrite(&AudioFormat,2,1,wav);
+	int16_t NumChannels=1; //MONO audio.
+	std::fwrite(&NumChannels,2,1,wav);
+	int32_t SampleRate=sampleRate;
+	std::fwrite(&SampleRate,4,1,wav);
+	int32_t ByteRate=2*sampleRate; //Since we are using 16 bits per sample, and "sampleRate" samples per second.
+	std::fwrite(&ByteRate,4,1,wav);
+	int16_t BlockAlign=2; //Each block is two bytes.
+	std::fwrite(&BlockAlign,2,1,wav);
+	int16_t BitsPerSample=16;
+	std::fwrite(&BitsPerSample,2,1,wav);
+	std::fprintf(wav,"data");
 	while (!input.eof()) {
 		std::string currentNote;
 		input >>currentNote;
@@ -62,11 +99,11 @@ int main(int argc,char **argv) {
 			float secondHarmony=sin(2*M_PI*2*currentFrequency*i/sampleRate+M_PI/4)*4096;
 			float thirdHarmony=sin(2*M_PI*3*currentFrequency*i/sampleRate+M_PI/2)*1024;
 			float fourthHarmony=sin(2*M_PI*4*currentFrequency*i/sampleRate+M_PI/2)*512;
-			float currentAmplitude=baseFrequency+secondHarmony+thirdHarmony*exp(-(float)(i%sampleRate+sampleRate/4)/(sampleRate/4)); 
+			float currentAmplitude=(baseFrequency+secondHarmony+thirdHarmony+fourthHarmony)*std::exp(-(float)(2*i+sampleRate)/(sampleRate)); //Attenuation. 
 			int16_t numberToBeWritten=(fullNoteName=="P")?(0):(currentAmplitude);
-			numberToBeWritten+=rand()%256-128;
-			fwrite(&numberToBeWritten,2,1,raw);
+			numberToBeWritten+=std::rand()%256-128; //A bit of noise makes it sound better.
+			std::fwrite(&numberToBeWritten,2,1,wav);
 		}
 	}
-	fclose(raw);
+	std::fclose(wav);
 }
