@@ -55,6 +55,8 @@ int main(int argc,char **argv) {
 	std::fclose(wav);
 	if (testCharacter==0x10) //The logic is: if the C library uses big endian for writing binary files, now "testCharacter" will still contain 0.
 		isLittleEndian=true;
+	else
+		isLittleEndian=false;
 	wav=std::fopen("output.wav","wb");
 	if (isLittleEndian)
 		std::fprintf(wav,"RIFF"); //ASCII for 0x52494646, the magic number that WAV files start with. 
