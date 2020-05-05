@@ -5,7 +5,7 @@
 #include <map>
 
 std::map<std::string,float> notes;
-int sampleRate=44100;
+int sampleRate=8192; //I don't think it's at all my fault that some players claim to support WAV format, but fail to play a WAV file that has lower sample rate than "standard".
 
 int main(int argc,char **argv) {
 	notes["a"]=220;
@@ -83,6 +83,11 @@ int main(int argc,char **argv) {
 	while (!input.eof()) {
 		std::string currentNote;
 		input >>currentNote;
+		if (currentNote.substr(0,1)=="#") //Comment
+		{
+			while (!input.eof() && input.get()!='\n') continue;
+			continue;
+		}
 		if (currentNote.length()==0) break;
 		std::string durationString="";
 		int i=0;
@@ -94,18 +99,27 @@ int main(int argc,char **argv) {
 		std::cerr <<"Read note name \"" <<currentNote <<"\", the duration string is: " <<durationString <<std::endl;
 		int noteDuration=3*sampleRate/std::stof(durationString);
 		std::string fullNoteName=currentNote.substr(i);
+		if (std::stof(durationString)==0 || std::isnan(std::stof(durationString)) || (notes[fullNoteName]==0 && fullNoteName!="P")) {
+			std::cerr<<"Can't interpret the note name \"" <<currentNote
+				 <<"\" or the duration number " <<durationString 
+				 <<", aborting!" <<std::endl;
+			std::fclose(wav);
+			input.close();
+			return 1; 
+		}
 		std::cerr <<"Playing note \"" <<fullNoteName <<"\" for " <<noteDuration <<" samples." <<std::endl;
 		for (int i=0; i<noteDuration; i++) {
 			float currentFrequency=notes[fullNoteName];
-			float baseFrequency=sin(2*M_PI*currentFrequency*i/sampleRate)*16384;
-			float secondHarmony=sin(2*M_PI*2*currentFrequency*i/sampleRate+M_PI/4)*4096;
-			float thirdHarmony=sin(2*M_PI*3*currentFrequency*i/sampleRate+M_PI/2)*1024;
-			float fourthHarmony=sin(2*M_PI*4*currentFrequency*i/sampleRate+M_PI/2)*512;
-			float currentAmplitude=(baseFrequency+secondHarmony+thirdHarmony+fourthHarmony)*std::exp(-(float)(2*i+sampleRate)/(sampleRate)); //Attenuation. 
+			float baseFrequency=sin(2*M_PI*currentFrequency*i/sampleRate)*std::pow(2,14);
+			float secondHarmony=sin(2*M_PI*2*currentFrequency*i/sampleRate+M_PI/4)*std::pow(2,12);
+			float thirdHarmony=sin(2*M_PI*3*currentFrequency*i/sampleRate+M_PI/2)*std::pow(2,10);
+			float fourthHarmony=sin(2*M_PI*4*currentFrequency*i/sampleRate-M_PI/4)*std::pow(2,9);
+			float currentAmplitude=(baseFrequency+secondHarmony+thirdHarmony+fourthHarmony)*std::exp(-(float)(2*i)/(sampleRate)); //Attenuation. 
 			int16_t numberToBeWritten=(fullNoteName=="P")?(0):(currentAmplitude);
-			numberToBeWritten+=std::rand()%256-128; //A bit of noise makes it sound better.
+			numberToBeWritten+=std::rand()%(1<<8)-(1<<7); //A bit of noise makes it sound better.
 			std::fwrite(&numberToBeWritten,2,1,wav);
 		}
 	}
+	input.close();
 	std::fclose(wav);
 }
