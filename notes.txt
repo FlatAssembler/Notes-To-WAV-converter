@@ -1,16 +1,25 @@
 #"The Town I Loved so Well" by Phil Coulter.
-8Cs 8D 3E 4E 3H 8A 8Gs 3A 8A 8Fs 3E 4E 3Fs 8Gs 8A 3Cs 8a 8b 3Cs 8D 8Cs
-#In my memory I will always see the town I have loved so
-2b 4P 8Cs 8D 3E 4E 3H 8A 8Gs 3A 8A 8Fs 3E 8E 8E 2Fs 4Gs 4A
-#well. Where our school played ball by the gasyard wall and we laughed through the
-2Cs 8Cs 4b 8a 4P 8E 8E 2A 4A 4A 3H 8Cs5 8D5 8D5 4Cs5 8Cs5 4Cs5 4H
-#smoke and the smell. Going home in the rain, running up the dark
-2A 4P 8H 8Cs5 3D5 4D5 4.5D5 8Cs5 4.5H 8A 8Gs 8Fs 4P 2E 8Cs 8D 3E 4E
-#lane. Past the jail and down behind the fountain. Those were happy
-3H 8A 8Gs 4.5A 8A 4.5A 8Fs 3E 8E 8E 3Fs 8Gs 8A 3Cs 8Cs 8b 5a 4P
-#days in so many ways, in the town I loved so well.
+
+8Cs 8D 1.33E 4E 1.33H 8A 8Gs  1.33A 8A 8Fs 1.33E  4E  1.33Fs  8Gs  8A 1.33Cs 8a 8b 1.33Cs   8D 8Cs
+#In my me-   mo-ry    I  will al-   ways   see    the town    that    I      have  loved     so
+
+  2b  4P  8Cs  8D  1.33E     4E     1.33H   8A 8Gs 1.33A 8A 8Fs 1.33E   8E  8E 2Fs     4Gs     4A
+#well.   Where our school    played ball    by the gas-  yard   wall    and we laughed through the
+
+  2Cs  8Cs 4b 8a  0.67a 4P  8E 8E 2A   4A 4A  1.33H    8Cs5 8D5  8D5 4Cs5 8Cs5 4Cs5 4H
+#smoke and    the smell.    Going home in the rain,    run- ning up       the  da-rk
+
+  2A  4P 8H   8Cs5 1.33D5  4D5 2.67D5  8Cs5 2.67H  8A  8Gs 8Fs 0.8E 4P 8Cs   8D   1.33E 8Cs 
+#lane.   Past the  jail    and down    be-  hind   the foun-   tain    Those were hap-    py
+
+1.33H 8A 8Gs 2.67A  8A  2.67A 8A 1.33E  8E 8E  3Fs  8Gs 8A 1.33Cs 8Cs 8b 0.67a 4P
+#days in so  ma-    ny  ma-   ny ways,  in the town I      loved  so     well.
+
+
+
 8Cs 8D 3E 4E 3H 8A 8Gs 3A 8A 8Fs 3E 4E 3Fs 8Gs 8A 3Cs 8a 8b 3Cs 8D 8Cs
 #There was music there in the Derry air, like a language that we could all under-
+
 2b 4P 8Cs 8D 3E 4E 3H 8A 8Gs 3A 8A 8Fs 3E 8E 8E 2Fs 4Gs 4A
 #stand. I remember the day when I earned my first pay, playing in a small
 2Cs 8Cs 4b 8a 4P 8E 8E 2A 4A 4A 3H 8Cs5 8D5 8D5 4Cs5 8Cs5 4Cs5 4H
