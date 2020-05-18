@@ -1,0 +1,3 @@
+#An example jingle.
+
+8C5 12H 8G 8E 8G 8G 8G 8E 8C 16D 8E 8F 8F 8F 16F 8F 8D 16E 16D 2C

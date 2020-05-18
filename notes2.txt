@@ -1,0 +1,6 @@
+#An attempt to read complicated classical music from spectrogram,
+#only the beginning is recognizable. Nevertheless, I think it might
+#make a good background music for some computer game.
+
+6C 8F 2Gs 8C 8C 8C 8C 2as 8as 8as 4as 8C 8C 4C 8as 8as 4as 4C 4Cs 4C
+8D 4C 8Ds 4C 8C 8C 2C 2C 2as 2as 2a 2a 4Cs 8D 4Ds 8E 8D 4C 16E 16D 2C 1b 
