@@ -1,0 +1,49 @@
+ #Grad heroja (written by Latinka Golic and Teo Samarzija)
+ 
+ 4C  4E 8D 8E   4G  8F    8E 8D 8F 4E  4C
+#Sva-ki mi-ran dan  grad  he-ro-ja spa-va.
+
+ 4C  4E 8D  8E  4G  8F  8E   8D  8F   4E    4Ds
+#Svi mi sto smo tu  ra -do-  sni smo  s nji--im.
+
+ 8E  16A 16P 8G 8F 4E 4A   8G   8F 8E 8G 4F    4C
+#Do  kad     ce-mo cu-ti smijeh iz us-ta dje---ce?
+
+ 8G  16A 16P  8G 8F 4E 4A  8G  8F  2.67E 8E  4G   4F   1.33P
+#Do  kad      vi-se ne-ce  bom-be  skr-- sit taj grad?
+
+ 8E   4A  8P  8G 8F 4E   12E 12E 12E 12E 12E 12A 8F  8F 4C
+#Do   kad     ce se krv  cr- ve--nih ra--to--va  bra-ni-ti?
+
+ 
+ 8E 4G 8F  2.67E 8C  2G  2P 8E  4G 8F 8E 2.67D 2a 2P
+#O  Bo-ze, mir   nam daj!   Nek ra-ta ne   bu--de!
+
+ 8E 4G 8F 2.67E  8C   2G   2P 8F  4E 8E  8D  8F  2.67D 2C 2P
+#O  Bo-ze,  mir  nam  daj!    Nek ra-ta  ne       bu-  de!
+
+
+ 8C  2.67G 8F 8E  8D 4C 12D 12E 12F 2.67G  8A 4G  4C
+#Nek cvije-ce su-mor-no ras-cva-te  svo---jim sja-jem!
+ 
+ 12C 12D 12E 2.67G 8F  4E 12C 12D 12E 2.67E 8Ds  4a
+#Nek lju-di  u-----mor-ni ra--su--de   sto  je  raj.
+
+ 16E 16P 16A 16P 16G 16P 16F 16P 16G 16P 16A 16P 16F 8P
+#Nek     ne      dig-----nu       se     pus-----ke!
+
+ 24E 24P 24E 24P 24E 24P 16A 16P 16G 16P 16F 16P 16G 16P 2.67A 8A
+#I       nek     ne      raz-----gr------nu      se      mrz---nje.
+
+ 4A 4F   2C 2.67F 8G 2G 8F  8G 12A 12G 12F 4A  4A
+#Ra-zum nek ra----si-ri svo-ja ve--li--ka  kri-la.
+
+
+ 8E 2.67G 8F 16E 16P 8P 4D  2E 2P 8E 2.67G 8F 16E 16P 16D 16P 8P 2C 2P
+#Nek ne---ma ra---------to--va!   Nek ne---ma ra------to---------va!
+
+ 8E 2.67G 8F 16E 16P 16D 16P 8P 2E 2P
+#Nek ne---ma ra------to---------va!
+ 
+ 8E  8G 2.67F 8E  8E  2.67Ds 8D 2.67E 8E  8G 2.67F 8E 8E 2.67Ds 8D 1.33C
+#Nek za-vla---da  ko---nac---no mir!  Nek za-vla---da ko-nac----no mir!
