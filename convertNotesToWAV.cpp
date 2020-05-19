@@ -106,7 +106,8 @@ int main(int argc, char **argv) {
 		std::string fullNoteName = currentNote.substr(i);
 		if (std::stof(durationString) == 0
 				|| std::isnan(std::stof(durationString))
-				|| (notes[fullNoteName] == 0 && fullNoteName != "P")) {
+				|| (notes[fullNoteName] == 0 && fullNoteName != "P"
+						&& fullNoteName.substr(0, 3) != "Hz(")) {
 			std::cerr << "Can't interpret the note name \"" << currentNote
 					<< "\" or the duration number " << durationString
 					<< ", aborting!" << std::endl;
@@ -116,18 +117,21 @@ int main(int argc, char **argv) {
 		}
 		std::cerr << "Playing note \"" << fullNoteName << "\" for "
 				<< noteDuration << " samples." << std::endl;
+		float currentFrequency = notes[fullNoteName];
+		if (fullNoteName.substr(0, 3) == "Hz(")
+			currentFrequency = std::stof(fullNoteName.substr(3));
+		std::cerr << "Frequency is " << currentFrequency << "Hz." << std::endl;
 		for (int i = 0; i < noteDuration; i++) {
-			float currentFrequency = notes[fullNoteName];
-			float baseFrequency = sin(
+			float baseFrequency = std::sin(
 					2 * M_PI * currentFrequency * i / sampleRate)
 					* std::pow(2, 14);
-			float secondHarmony = sin(
+			float secondHarmony = std::sin(
 					2 * M_PI * 2 * currentFrequency * i / sampleRate + M_PI / 4)
 					* std::pow(2, 12);
-			float thirdHarmony = sin(
+			float thirdHarmony = std::sin(
 					2 * M_PI * 3 * currentFrequency * i / sampleRate + M_PI / 2)
 					* std::pow(2, 10);
-			float fourthHarmony = sin(
+			float fourthHarmony = std::sin(
 					2 * M_PI * 4 * currentFrequency * i / sampleRate - M_PI / 4)
 					* std::pow(2, 9);
 			float currentAmplitude = (baseFrequency + secondHarmony
